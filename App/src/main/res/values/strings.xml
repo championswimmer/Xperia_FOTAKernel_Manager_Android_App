@@ -10,4 +10,12 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 
+    <string-array name="section_titles">
+        <item>FOTAKernel</item>
+        <item>TWRP</item>
+        <item>CWM</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
