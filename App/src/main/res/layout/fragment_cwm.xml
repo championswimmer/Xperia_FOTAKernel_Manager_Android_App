@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.CwmFragment">
+    tools:context="in.championswimmer.twrpxperia.fragment.CwmFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Update blank in.championswimmer.twrpxperia.fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

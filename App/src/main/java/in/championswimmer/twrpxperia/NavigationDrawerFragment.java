@@ -82,7 +82,7 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onActivityCreated (Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        // Indicate that this fragment would like to influence the set of actions in the action bar.
+        // Indicate that this in.championswimmer.twrpxperia.fragment would like to influence the set of actions in the action bar.
         setHasOptionsMenu(true);
     }
 
@@ -112,10 +112,10 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     /**
-     * Users of this fragment must call this method to set up the navigation drawer interactions.
+     * Users of this in.championswimmer.twrpxperia.fragment must call this method to set up the navigation drawer interactions.
      *
-     * @param fragmentId   The android:id of this fragment in its activity's layout.
-     * @param drawerLayout The DrawerLayout containing this fragment's UI.
+     * @param fragmentId   The android:id of this in.championswimmer.twrpxperia.fragment in its activity's layout.
+     * @param drawerLayout The DrawerLayout containing this in.championswimmer.twrpxperia.fragment's UI.
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
@@ -268,7 +268,7 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     /**
-     * Callbacks interface that all activities using this fragment must implement.
+     * Callbacks interface that all activities using this in.championswimmer.twrpxperia.fragment must implement.
      */
     public static interface NavigationDrawerCallbacks {
         /**
