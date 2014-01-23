@@ -17,5 +17,20 @@
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fota_restore_desc">Restore a backed up\n FOTAKernel image</string>
+    <string name="fota_backup_desc">Backup the FOTAKernel\n parition as an image</string>
+    <string name="fota_format_desc">Write zeroes to the\n FOTAKernel partition</string>
+    <string name="fota_format_button">FORMAT</string>
+    <string name="fota_backup_button">BACKUP</string>
+    <string name="fota_restore_button">RESTORE</string>
+    <string name="cwm_download_button">DOWLOAD</string>
+    <string name="cwm_download_desc">Get latest CWM Recovery \n image for your device</string>
+    <string name="cwm_flash_button">FLASH</string>
+    <string name="cwm_flash_desc">Flash the downloaded CWM Image \n to your FOTAKernel partition</string>
+    <string name="twrp_download_button">DOWLOAD</string>
+    <string name="twrp_download_desc">Get latest TWRP Recovery \n image for your device</string>
+    <string name="twrp_flash_button">FLASH</string>
+    <string name="twrp_flash_desc">Flash the downloaded TWRP Image \n to your FOTAKernel partition</string>
+
 
 </resources>

@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
+import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
 import in.championswimmer.twrpxperia.fragment.TwrpFragment;
@@ -40,7 +41,6 @@ public class MainActivity extends Activity
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
-
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -51,6 +51,8 @@ public class MainActivity extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
+        String[] titles = getResources().getStringArray(R.array.section_titles);
+        getActionBar().setTitle(titles[position]);
         switch (position) {
             case 0 :
                 fragmentManager.beginTransaction()
@@ -73,14 +75,15 @@ public class MainActivity extends Activity
     public void onSectionAttached(int number) {
         String[] titles = getResources().getStringArray(R.array.section_titles);
         mTitle = titles[number-1];
+        setTitle(mTitle);
     }
 
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
+        //actionBar.setTitle(mTitle);
+        }
 
 
     @Override
