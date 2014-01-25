@@ -36,6 +36,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/twrp_flash_button"
                 android:layout_gravity="center"
                 android:text="@string/twrp_flash_button"/>
             <TextView

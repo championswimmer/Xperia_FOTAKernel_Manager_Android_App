@@ -35,6 +35,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fota_restore_button"
                 android:layout_gravity="center"
                 android:text="@string/fota_backup_button"/>
             <TextView

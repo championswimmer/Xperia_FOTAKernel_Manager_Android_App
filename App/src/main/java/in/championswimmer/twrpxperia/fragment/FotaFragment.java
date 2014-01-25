@@ -7,8 +7,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import in.championswimmer.twrpxperia.R;
+import in.championswimmer.twrpxperia.flashutils.FlashFota;
+import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 
 /**
@@ -25,6 +28,8 @@ public class FotaFragment extends Fragment {
     // the in.championswimmer.twrpxperia.fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private Boolean backupExists;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -60,13 +65,20 @@ public class FotaFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        SaveDir dir = new SaveDir();
+        backupExists = dir.existsFotaBackup();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this in.championswimmer.twrpxperia.fragment
-        return inflater.inflate(R.layout.fragment_fota, container, false);
+        FlashFota ff = new FlashFota(getActivity().getApplicationContext(), "format");
+
+        View rootView = inflater.inflate(R.layout.fragment_fota, container, false);
+        Button restoreButton = (Button) rootView.findViewById(R.id.fota_restore_button);
+        restoreButton.setEnabled(backupExists);
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
