@@ -2,8 +2,11 @@ package in.championswimmer.twrpxperia.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +38,7 @@ public class FotaFragment extends Fragment {
     private FlashFota ff;
     private Boolean backupExists = false;
     private Boolean hasRoot = false;
+    private String HAS_ROOT_PREF = "hasRoot";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -74,14 +78,10 @@ public class FotaFragment extends Fragment {
         SaveDir dir = new SaveDir();
         backupExists = dir.existsFotaBackup();
         ff = new FlashFota(getActivity().getApplicationContext());
-        hasRoot = ff.hasRoot();
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        hasRoot = pref.getBoolean(HAS_ROOT_PREF, false);
 
-        Log.d(LOG_TAG, dir.backupBath());
-        Log.d(LOG_TAG, dir.existsFotaBackup().toString());
-        Log.d(LOG_TAG, dir.cwmPath());
-        Log.d(LOG_TAG, dir.existsCwmImage().toString());
-        Log.d(LOG_TAG, dir.twrpPath());
-        Log.d(LOG_TAG, dir.existsTwrpImage().toString());
 
     }
 

@@ -2,8 +2,10 @@ package in.championswimmer.twrpxperia.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,9 @@ public class TwrpFragment extends Fragment {
     // the in.championswimmer.twrpxperia.fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private String HAS_ROOT_PREF = "hasRoot";
+
 
     private FlashFota ff;
     private Boolean hasRoot;
@@ -72,7 +77,8 @@ public class TwrpFragment extends Fragment {
         dir = new SaveDir();
         twrpExists = dir.existsTwrpImage();
         ff = new FlashFota(getActivity().getApplicationContext());
-        hasRoot = ff.hasRoot();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        hasRoot = pref.getBoolean(HAS_ROOT_PREF, false);
     }
 
     @Override

@@ -3,12 +3,15 @@ package in.championswimmer.twrpxperia;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
 import in.championswimmer.twrpxperia.fragment.TwrpFragment;
@@ -21,6 +24,8 @@ public class MainActivity extends Activity
         CwmFragment.OnFragmentInteractionListener,
         FotaFragment.OnFragmentInteractionListener,
         TwrpFragment.OnFragmentInteractionListener {
+
+    private String HAS_ROOT_PREF = "hasRoot";
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -44,6 +49,11 @@ public class MainActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        FlashFota chkRoot = new FlashFota(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor prefEditor = prefs.edit();
+        prefEditor.putBoolean(HAS_ROOT_PREF, chkRoot.hasRoot());
+        prefEditor.commit();
     }
 
     @Override
