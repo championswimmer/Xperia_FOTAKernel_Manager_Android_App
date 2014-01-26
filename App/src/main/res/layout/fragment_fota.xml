@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="in.championswimmer.twrpxperia.fragment.FotaFragment">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,14 +20,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fota_format_button"
-                android:text="@string/fota_format_button"/>
+                android:text="@string/fota_format_button" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/fota_format_desc"/>
+                android:text="@string/fota_format_desc" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,14 +41,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/fota_backup_button"
-                android:text="@string/fota_backup_button"/>
+                android:text="@string/fota_backup_button" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/fota_backup_desc"/>
+                android:text="@string/fota_backup_desc" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,12 +61,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fota_restore_button"
-                android:text="@string/fota_restore_button"/>
+                android:text="@string/fota_restore_button" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/fota_restore_desc"/>
+                android:text="@string/fota_restore_desc" />
 
         </LinearLayout>
 

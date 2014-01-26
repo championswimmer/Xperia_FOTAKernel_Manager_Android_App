@@ -1,7 +1,6 @@
 package in.championswimmer.twrpxperia.flashutils;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
 
@@ -23,7 +22,7 @@ public class FlashFota {
     private String method;
     SaveDir dir = new SaveDir();
 
-    public Boolean hasRoot () {
+    public Boolean hasRoot() {
         Process root;
         DataOutputStream os;
         try {
@@ -43,7 +42,7 @@ public class FlashFota {
         return false;
     }
 
-    public FlashFota (Context context) {
+    public FlashFota(Context context) {
         String[] prop = context.getResources().getStringArray(R.array.supported_device_prop);
         String[] codename = context.getResources().getStringArray(R.array.supported_device_codename);
         String[] fotaPath = context.getResources().getStringArray(R.array.fota_path);
@@ -72,7 +71,7 @@ public class FlashFota {
             os = new DataOutputStream(p.getOutputStream());
             //add the commands to the process
             for (String tmpCmd : cmds) {
-                os.writeBytes(tmpCmd+"\n");
+                os.writeBytes(tmpCmd + "\n");
             }
             //flush out the process
             os.writeBytes("exit\n");
@@ -82,20 +81,20 @@ public class FlashFota {
         }
     }
 
-    public void backup () {
+    public void backup() {
         Log.d(LOG_TAG, "preparing to backup fota");
         Process p;
         DataOutputStream os;
         //the backup command
         String[] cmds = new String[]{
-                "dd if="+FOTA_PATH+ " of="+dir.backupBath()};
+                "dd if=" + FOTA_PATH + " of=" + dir.backupBath()};
         try {
             //create a new non root shell
             p = Runtime.getRuntime().exec("sh");
             os = new DataOutputStream(p.getOutputStream());
             //add the commands to the process
             for (String tmpCmd : cmds) {
-                os.writeBytes(tmpCmd+"\n");
+                os.writeBytes(tmpCmd + "\n");
             }
             //flush out the process
             os.writeBytes("exit\n");
@@ -105,20 +104,21 @@ public class FlashFota {
         }
 
     }
+
     public void restore() {
         Log.d(LOG_TAG, "preparing to restore fota");
         Process p;
         DataOutputStream os;
         //the format command
         String[] cmds = new String[]{
-                "dd if="+dir.backupBath()+" of=" + FOTA_PATH};
+                "dd if=" + dir.backupBath() + " of=" + FOTA_PATH};
         try {
             //create a new root shell
             p = Runtime.getRuntime().exec("su");
             os = new DataOutputStream(p.getOutputStream());
             //add the commands to the process
             for (String tmpCmd : cmds) {
-                os.writeBytes(tmpCmd+"\n");
+                os.writeBytes(tmpCmd + "\n");
             }
             //flush out the process
             os.writeBytes("exit\n");

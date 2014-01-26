@@ -1,27 +1,26 @@
 package in.championswimmer.twrpxperia;
 
-import android.app.Activity;
-;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
 
-import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
 import in.championswimmer.twrpxperia.fragment.TwrpFragment;
+
+;
 
 public class MainActivity extends Activity
         implements
         NavigationDrawerFragment.NavigationDrawerCallbacks,
         CwmFragment.OnFragmentInteractionListener,
         FotaFragment.OnFragmentInteractionListener,
-        TwrpFragment.OnFragmentInteractionListener
-{
+        TwrpFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -54,17 +53,17 @@ public class MainActivity extends Activity
         String[] titles = getResources().getStringArray(R.array.section_titles);
         getActionBar().setTitle(titles[position]);
         switch (position) {
-            case 0 :
+            case 0:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, FotaFragment.newInstance("A", "a"))
                         .commit();
                 break;
-            case 1 :
+            case 1:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, TwrpFragment.newInstance("A", "a"))
                         .commit();
                 break;
-            case 2 :
+            case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, CwmFragment.newInstance("A", "a"))
                         .commit();
@@ -74,7 +73,7 @@ public class MainActivity extends Activity
 
     public void onSectionAttached(int number) {
         String[] titles = getResources().getStringArray(R.array.section_titles);
-        mTitle = titles[number-1];
+        mTitle = titles[number - 1];
         setTitle(mTitle);
     }
 
@@ -83,7 +82,7 @@ public class MainActivity extends Activity
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         //actionBar.setTitle(mTitle);
-        }
+    }
 
 
     @Override

@@ -1,9 +1,9 @@
 package in.championswimmer.twrpxperia.fragment;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,6 @@ import in.championswimmer.twrpxperia.flashutils.SaveDir;
  * to handle interaction events.
  * Use the {@link FotaFragment#newInstance} factory method to
  * create an instance of this in.championswimmer.twrpxperia.fragment.
- *
  */
 public class FotaFragment extends Fragment {
 
@@ -60,6 +59,7 @@ public class FotaFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     public FotaFragment() {
         // Required empty public constructor
     }
@@ -155,7 +155,7 @@ public class FotaFragment extends Fragment {
      * in.championswimmer.twrpxperia.fragment to allow an interaction in this in.championswimmer.twrpxperia.fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

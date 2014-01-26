@@ -5,10 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AppLightTheme" parent="android:Theme.Holo.Light">
-    </style>
+    <style name="AppLightTheme" parent="android:Theme.Holo.Light"></style>
 
-    <style name="AppDefTheme" parent="android:Theme.DeviceDefault" >
+    <style name="AppDefTheme" parent="android:Theme.DeviceDefault">
 
     </style>
 
