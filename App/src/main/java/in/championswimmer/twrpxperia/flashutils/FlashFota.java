@@ -15,6 +15,9 @@ import in.championswimmer.twrpxperia.R;
  */
 public class FlashFota {
 
+    private String LOG_TAG = "XRM FlashFota";
+
+
     private String FOTA_PATH = "/dev/block/platform/msm_sdcc.1/by-name/";
     private String XPERIA = "yuga";
     private String method;
@@ -45,19 +48,19 @@ public class FlashFota {
         String[] codename = context.getResources().getStringArray(R.array.supported_device_codename);
         String[] fotaPath = context.getResources().getStringArray(R.array.fota_path);
 
-        Log.d("XFM", "new object to manipulate fota created");
+        Log.d(LOG_TAG, "new object to manipulate fota created");
 
         for (int i = 0; i < prop.length; i++) {
-            //Log.d("XFM", "checking "+ Build.DEVICE + " against " + prop[i]);
+            //Log.d(LOG_TAG, "checking "+ Build.DEVICE + " against " + prop[i]);
             if (prop[i].equalsIgnoreCase(Build.DEVICE)) {
-                XPERIA = codename[i]; //Log.d("XFM", "xperia " + XPERIA);
-                FOTA_PATH = FOTA_PATH + fotaPath[i]; //Log.d("XFM", "fotapath " + FOTA_PATH);
+                XPERIA = codename[i]; //Log.d(LOG_TAG, "xperia " + XPERIA);
+                FOTA_PATH = FOTA_PATH + fotaPath[i]; //Log.d(LOG_TAG, "fotapath " + FOTA_PATH);
             }
         }
     }
 
     public void format() {
-        Log.d("XFM", "preparing to format fota");
+        Log.d(LOG_TAG, "preparing to format fota");
         Process p;
         DataOutputStream os;
         //the format command
@@ -80,7 +83,7 @@ public class FlashFota {
     }
 
     public void backup () {
-        Log.d("XFM", "preparing to backup fota");
+        Log.d(LOG_TAG, "preparing to backup fota");
         Process p;
         DataOutputStream os;
         //the backup command
@@ -103,7 +106,7 @@ public class FlashFota {
 
     }
     public void restore() {
-        Log.d("XFM", "preparing to restore fota");
+        Log.d(LOG_TAG, "preparing to restore fota");
         Process p;
         DataOutputStream os;
         //the format command

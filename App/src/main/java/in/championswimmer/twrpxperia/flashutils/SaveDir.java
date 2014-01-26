@@ -9,6 +9,8 @@ import java.io.File;
  */
 public class SaveDir {
 
+    private String LOG_TAG = "XRM";
+
     public static String STORAGE_DIRECTORY = Environment.getExternalStorageDirectory().getPath() + "/TWRPXperia/";
     public static String RAW_CWM_PATH = "/sdcard/TWRPXperia/cwm.img";
     public static String RAW_TWRP_PATH = "/sdcard/TWRPXperia/twrp.img";

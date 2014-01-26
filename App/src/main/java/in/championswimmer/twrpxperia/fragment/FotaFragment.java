@@ -25,6 +25,9 @@ import in.championswimmer.twrpxperia.flashutils.SaveDir;
  *
  */
 public class FotaFragment extends Fragment {
+
+    private String LOG_TAG = "XRM FotaFragment";
+
     // TODO: Rename parameter arguments, choose names that match
     // the in.championswimmer.twrpxperia.fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -73,12 +76,12 @@ public class FotaFragment extends Fragment {
         ff = new FlashFota(getActivity().getApplicationContext());
         hasRoot = ff.hasRoot();
 
-        Log.d("XFM", dir.backupBath());
-        Log.d("XFM", dir.existsFotaBackup().toString());
-        Log.d("XFM", dir.cwmPath());
-        Log.d("XFM", dir.existsCwmImage().toString());
-        Log.d("XFM", dir.twrpPath());
-        Log.d("XFM", dir.existsTwrpImage().toString());
+        Log.d(LOG_TAG, dir.backupBath());
+        Log.d(LOG_TAG, dir.existsFotaBackup().toString());
+        Log.d(LOG_TAG, dir.cwmPath());
+        Log.d(LOG_TAG, dir.existsCwmImage().toString());
+        Log.d(LOG_TAG, dir.twrpPath());
+        Log.d(LOG_TAG, dir.existsTwrpImage().toString());
 
     }
 
