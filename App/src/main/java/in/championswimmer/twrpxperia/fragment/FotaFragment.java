@@ -2,12 +2,10 @@ package in.championswimmer.twrpxperia.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.Button;
 
 import in.championswimmer.twrpxperia.R;
 import in.championswimmer.twrpxperia.flashutils.FlashFota;
-import in.championswimmer.twrpxperia.flashutils.GetImg;
 import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 

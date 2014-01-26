@@ -92,7 +92,7 @@ public class CwmFragment extends Fragment {
         Button flashButton = (Button) rootView.findViewById(R.id.cwm_flash_button);
 
         //enable flash only if cwm.img exists
-        flashButton.setEnabled((cwmExists)&&(hasRoot));
+        flashButton.setEnabled((cwmExists) && (hasRoot));
 
         flashButton.setOnClickListener(new View.OnClickListener() {
             @Override

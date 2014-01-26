@@ -7,7 +7,6 @@ import android.os.Build;
 import android.util.Log;
 
 import java.io.File;
-import java.util.Date;
 
 import in.championswimmer.twrpxperia.R;
 
@@ -27,7 +26,7 @@ public class GetImg {
 
     private Context c;
 
-    public GetImg( Context context ) {
+    public GetImg(Context context) {
         c = context;
         codenames = context.getResources().getStringArray(R.array.supported_device_codename);
         props = context.getResources().getStringArray(R.array.supported_device_prop);
@@ -38,11 +37,12 @@ public class GetImg {
                 deviceName = codenames[i];
             }
         }
-        Log.d(LOG_TAG, "prepare a download method for "+deviceName);
+        Log.d(LOG_TAG, "prepare a download method for " + deviceName);
     }
+
     public void downloadTWRP() {
         String url = TWRP_BASE_URL + deviceName + "/recovery.img";
-        Log.d(LOG_TAG, "downloading "+url);
+        Log.d(LOG_TAG, "downloading " + url);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription("TWRP recovery for " + deviceName);
         request.setTitle("twrp.img");
@@ -57,7 +57,7 @@ public class GetImg {
 
     public void downloadCWM() {
         String url = CWM_BASE_URL + deviceName + "/recovery.img";
-        Log.d(LOG_TAG, "downloading "+url);
+        Log.d(LOG_TAG, "downloading " + url);
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription("CWM recovery for " + deviceName);
         request.setTitle("cwm.img");

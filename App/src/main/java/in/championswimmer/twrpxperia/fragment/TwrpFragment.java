@@ -93,7 +93,7 @@ public class TwrpFragment extends Fragment {
         Button flashButton = (Button) rootView.findViewById(R.id.twrp_flash_button);
 
         //enable flashing only if twrp.img exists and we have root
-        flashButton.setEnabled((twrpExists)&&(hasRoot));
+        flashButton.setEnabled((twrpExists) && (hasRoot));
 
         flashButton.setOnClickListener(new View.OnClickListener() {
             @Override
