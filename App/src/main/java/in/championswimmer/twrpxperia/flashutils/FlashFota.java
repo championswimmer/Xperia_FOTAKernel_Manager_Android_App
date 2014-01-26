@@ -87,7 +87,7 @@ public class FlashFota {
         DataOutputStream os;
         //the backup command
         String[] cmds = new String[]{
-                "dd if=" + FOTA_PATH + " of=" + dir.backupBath()};
+                "dd if=" + FOTA_PATH + " of=" + dir.RAW_BACKUP_PATH};
         try {
             //create a new non root shell
             p = Runtime.getRuntime().exec("su");
@@ -112,7 +112,7 @@ public class FlashFota {
         DataOutputStream os;
         //the format command
         String[] cmds = new String[]{
-                "dd if=" + dir.backupBath() + " of=" + FOTA_PATH};
+                "dd if=" + dir.RAW_BACKUP_PATH + " of=" + FOTA_PATH};
         try {
             //create a new root shell
             p = Runtime.getRuntime().exec("su");

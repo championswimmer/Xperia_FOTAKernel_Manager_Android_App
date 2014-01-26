@@ -15,6 +15,7 @@ import android.widget.Button;
 
 import in.championswimmer.twrpxperia.R;
 import in.championswimmer.twrpxperia.flashutils.FlashFota;
+import in.championswimmer.twrpxperia.flashutils.GetImg;
 import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 
@@ -82,7 +83,6 @@ public class FotaFragment extends Fragment {
                 PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         hasRoot = pref.getBoolean(HAS_ROOT_PREF, false);
 
-
     }
 
     @Override
@@ -98,7 +98,7 @@ public class FotaFragment extends Fragment {
         //disable restore button if backup does not exist
         restoreButton.setEnabled((backupExists) && (hasRoot));
 
-        //disable format and restore button if root does not exist
+        //disable format and backup button if root does not exist
         formatButton.setEnabled(hasRoot);
         backupButton.setEnabled(hasRoot);
 

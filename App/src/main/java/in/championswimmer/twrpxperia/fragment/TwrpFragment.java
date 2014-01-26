@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import in.championswimmer.twrpxperia.R;
 import in.championswimmer.twrpxperia.flashutils.FlashFota;
+import in.championswimmer.twrpxperia.flashutils.GetImg;
 import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 
@@ -37,6 +38,7 @@ public class TwrpFragment extends Fragment {
     private Boolean hasRoot;
     private SaveDir dir;
     private Boolean twrpExists;
+    private GetImg gi;
 
 
     // TODO: Rename and change types of parameters
@@ -79,6 +81,7 @@ public class TwrpFragment extends Fragment {
         ff = new FlashFota(getActivity().getApplicationContext());
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         hasRoot = pref.getBoolean(HAS_ROOT_PREF, false);
+        gi = new GetImg(getActivity().getApplicationContext());
     }
 
     @Override
@@ -95,7 +98,14 @@ public class TwrpFragment extends Fragment {
         flashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ff.flashimg(dir.twrpPath());
+                ff.flashimg(dir.RAW_TWRP_PATH);
+            }
+        });
+
+        downloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gi.downloadTWRP();
             }
         });
 

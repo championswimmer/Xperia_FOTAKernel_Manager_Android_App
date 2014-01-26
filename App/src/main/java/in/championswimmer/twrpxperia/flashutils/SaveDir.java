@@ -39,16 +39,14 @@ public class SaveDir {
     }
 
     public String cwmPath() {
-        return RAW_CWM_PATH;
+        return STORAGE_DIRECTORY+"cwm.img";
     }
 
     public String twrpPath() {
-        return RAW_TWRP_PATH;
+        return STORAGE_DIRECTORY+"twrp.img";
     }
 
     public String backupBath() {
-        return RAW_BACKUP_PATH;
+        return STORAGE_DIRECTORY+"fotabackup.img";
     }
-
-
 }
