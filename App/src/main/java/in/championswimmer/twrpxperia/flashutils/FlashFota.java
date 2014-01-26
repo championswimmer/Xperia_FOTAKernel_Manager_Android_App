@@ -127,4 +127,27 @@ public class FlashFota {
             e.printStackTrace();
         }
     }
+
+    public void flashimg(String imgPath) {
+        Log.d(LOG_TAG, "preparing to flash fota with" + imgPath);
+        Process p;
+        DataOutputStream os;
+        //the format command
+        String[] cmds = new String[]{
+                "dd if=" + imgPath + " of=" + FOTA_PATH};
+        try {
+            //create a new root shell
+            p = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(p.getOutputStream());
+            //add the commands to the process
+            for (String tmpCmd : cmds) {
+                os.writeBytes(tmpCmd + "\n");
+            }
+            //flush out the process
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

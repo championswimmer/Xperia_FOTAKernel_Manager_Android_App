@@ -19,6 +19,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/cwm_download_button"
                 android:text="@string/cwm_download_button" />
 
             <TextView

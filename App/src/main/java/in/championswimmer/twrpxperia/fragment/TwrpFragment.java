@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import in.championswimmer.twrpxperia.R;
+import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 
@@ -27,7 +28,11 @@ public class TwrpFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private FlashFota ff;
+    private Boolean hasRoot;
+    private SaveDir dir;
     private Boolean twrpExists;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -64,8 +69,10 @@ public class TwrpFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        SaveDir dir = new SaveDir();
+        dir = new SaveDir();
         twrpExists = dir.existsTwrpImage();
+        ff = new FlashFota(getActivity().getApplicationContext());
+        hasRoot = ff.hasRoot();
     }
 
     @Override
@@ -73,9 +80,18 @@ public class TwrpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this in.championswimmer.twrpxperia.fragment
         View rootView = inflater.inflate(R.layout.fragment_twrp, container, false);
+        Button downloadButton = (Button) rootView.findViewById(R.id.twrp_download_button);
         Button flashButton = (Button) rootView.findViewById(R.id.twrp_flash_button);
 
-        flashButton.setEnabled(twrpExists);
+        //enable flashing only if twrp.img exists and we have root
+        flashButton.setEnabled((twrpExists)&&(hasRoot));
+
+        flashButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ff.flashimg(dir.twrpPath());
+            }
+        });
 
         return rootView;
     }
