@@ -18,6 +18,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fota_format_button"
                 android:text="@string/fota_format_button"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -35,8 +36,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/fota_restore_button"
                 android:layout_gravity="center"
+                android:id="@+id/fota_backup_button"
                 android:text="@string/fota_backup_button"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -54,6 +55,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/fota_restore_button"
                 android:text="@string/fota_restore_button"/>
             <TextView
                 android:layout_width="wrap_content"

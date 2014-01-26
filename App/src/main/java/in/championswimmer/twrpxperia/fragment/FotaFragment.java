@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,13 @@ public class FotaFragment extends Fragment {
         }
         SaveDir dir = new SaveDir();
         backupExists = dir.existsFotaBackup();
+        Log.d("XFM", dir.backupBath());
+        Log.d("XFM", dir.existsFotaBackup().toString());
+        Log.d("XFM", dir.cwmPath());
+        Log.d("XFM", dir.existsCwmImage().toString());
+        Log.d("XFM", dir.twrpPath());
+        Log.d("XFM", dir.existsTwrpImage().toString());
+
     }
 
     @Override
@@ -77,7 +85,21 @@ public class FotaFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_fota, container, false);
         Button restoreButton = (Button) rootView.findViewById(R.id.fota_restore_button);
+        Button backupButton = (Button) rootView.findViewById(R.id.fota_backup_button);
+        Button formatButton = (Button) rootView.findViewById(R.id.fota_format_button);
+
+        //disable restore button if backup does not exist
         restoreButton.setEnabled(backupExists);
+
+        //add onclick method for format
+        formatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FlashFota formatFota = new FlashFota(getActivity().getApplicationContext(), "format");
+                formatFota.execute();
+            }
+        });
+
         return rootView;
     }
 
