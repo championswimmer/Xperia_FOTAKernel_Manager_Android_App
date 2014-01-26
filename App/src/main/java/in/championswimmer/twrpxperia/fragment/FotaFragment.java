@@ -30,7 +30,9 @@ public class FotaFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private Boolean backupExists;
+    private FlashFota ff;
+    private Boolean backupExists = false;
+    private Boolean hasRoot = false;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,6 +70,9 @@ public class FotaFragment extends Fragment {
         }
         SaveDir dir = new SaveDir();
         backupExists = dir.existsFotaBackup();
+        ff = new FlashFota(getActivity().getApplicationContext());
+        hasRoot = ff.hasRoot();
+
         Log.d("XFM", dir.backupBath());
         Log.d("XFM", dir.existsFotaBackup().toString());
         Log.d("XFM", dir.cwmPath());
@@ -81,7 +86,6 @@ public class FotaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this in.championswimmer.twrpxperia.fragment
-        FlashFota ff = new FlashFota(getActivity().getApplicationContext(), "format");
 
         View rootView = inflater.inflate(R.layout.fragment_fota, container, false);
         Button restoreButton = (Button) rootView.findViewById(R.id.fota_restore_button);
@@ -89,14 +93,30 @@ public class FotaFragment extends Fragment {
         Button formatButton = (Button) rootView.findViewById(R.id.fota_format_button);
 
         //disable restore button if backup does not exist
-        restoreButton.setEnabled(backupExists);
+        restoreButton.setEnabled((backupExists) && (hasRoot));
+
+        //disable format and restore button if root does not exist
+        formatButton.setEnabled(hasRoot);
 
         //add onclick method for format
         formatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FlashFota formatFota = new FlashFota(getActivity().getApplicationContext(), "format");
-                formatFota.execute();
+                ff.format();
+            }
+        });
+        //add onclick method for backup
+        backupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ff.backup();
+            }
+        });
+        //add onclick method for restore
+        restoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ff.restore();
             }
         });
 

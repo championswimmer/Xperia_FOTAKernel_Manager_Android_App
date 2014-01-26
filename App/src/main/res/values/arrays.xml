@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string-array name="section_titles">
+        <item>FOTAKernel</item>
+        <item>TWRP</item>
+        <item>CWM</item>
+    </string-array>
+
     <string-array name="supported_device_prop">
         <item>mint</item>
         <item>LT30i</item>

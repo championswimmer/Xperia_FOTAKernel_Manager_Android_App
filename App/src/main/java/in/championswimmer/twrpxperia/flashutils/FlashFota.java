@@ -13,22 +13,39 @@ import in.championswimmer.twrpxperia.R;
 /**
  * Created by championswimmer on 22/1/14.
  */
-public class FlashFota extends AsyncTask<Void, Void, Void> {
+public class FlashFota {
 
     private String FOTA_PATH = "/dev/block/platform/msm_sdcc.1/by-name/";
     private String XPERIA = "yuga";
     private String method;
-    Process p = null;
-    String[] cmds = null;
     SaveDir dir = new SaveDir();
 
-    public FlashFota (Context context, String flashMethod) {
-        method = flashMethod;
+    public Boolean hasRoot () {
+        Process root;
+        DataOutputStream os;
+        try {
+            root = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(root.getOutputStream());
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        try {
+            return ((root.waitFor()) == 0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public FlashFota (Context context) {
         String[] prop = context.getResources().getStringArray(R.array.supported_device_prop);
         String[] codename = context.getResources().getStringArray(R.array.supported_device_codename);
         String[] fotaPath = context.getResources().getStringArray(R.array.fota_path);
 
-        Log.d("XFM", "new object to "+flashMethod+" fota created");
+        Log.d("XFM", "new object to manipulate fota created");
 
         for (int i = 0; i < prop.length; i++) {
             //Log.d("XFM", "checking "+ Build.DEVICE + " against " + prop[i]);
@@ -39,47 +56,72 @@ public class FlashFota extends AsyncTask<Void, Void, Void> {
         }
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
+    public void format() {
+        Log.d("XFM", "preparing to format fota");
+        Process p;
+        DataOutputStream os;
+        //the format command
+        String[] cmds = new String[]{
+                "dd if=/dev/zero of=" + FOTA_PATH};
         try {
+            //create a new root shell
             p = Runtime.getRuntime().exec("su");
-        } catch (IOException e) {
-            //TODO:
-            // add method to handle root not present situation
-            e.printStackTrace();
-        }
-        DataOutputStream os = new DataOutputStream(p.getOutputStream());
-
-
-        if (method.equalsIgnoreCase("format")) {
-            cmds = new String[]{
-                    "dd if=/dev/zero of=" + FOTA_PATH};
-            Log.d("XFM", "preparing to format fota");
-
-        }
-
-
-        if (method.equalsIgnoreCase("backup")) {
-        }
-
-
-        for (String tmpCmd : cmds) {
-            try {
+            os = new DataOutputStream(p.getOutputStream());
+            //add the commands to the process
+            for (String tmpCmd : cmds) {
                 os.writeBytes(tmpCmd+"\n");
-            } catch (IOException e) {
-                //TODO:
-                // handle operation failure here
-                e.printStackTrace();
             }
-        }
-        try {
+            //flush out the process
             os.writeBytes("exit\n");
             os.flush();
         } catch (IOException e) {
-            //TODO:
-            // handle operation failure here
             e.printStackTrace();
         }
-        return null;
+    }
+
+    public void backup () {
+        Log.d("XFM", "preparing to backup fota");
+        Process p;
+        DataOutputStream os;
+        //the backup command
+        String[] cmds = new String[]{
+                "dd if="+FOTA_PATH+ " of="+dir.backupBath()};
+        try {
+            //create a new non root shell
+            p = Runtime.getRuntime().exec("sh");
+            os = new DataOutputStream(p.getOutputStream());
+            //add the commands to the process
+            for (String tmpCmd : cmds) {
+                os.writeBytes(tmpCmd+"\n");
+            }
+            //flush out the process
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void restore() {
+        Log.d("XFM", "preparing to restore fota");
+        Process p;
+        DataOutputStream os;
+        //the format command
+        String[] cmds = new String[]{
+                "dd if="+dir.backupBath()+" of=" + FOTA_PATH};
+        try {
+            //create a new root shell
+            p = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(p.getOutputStream());
+            //add the commands to the process
+            for (String tmpCmd : cmds) {
+                os.writeBytes(tmpCmd+"\n");
+            }
+            //flush out the process
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
