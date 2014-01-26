@@ -90,10 +90,11 @@ public class FlashFota {
                 "dd if=" + FOTA_PATH + " of=" + dir.backupBath()};
         try {
             //create a new non root shell
-            p = Runtime.getRuntime().exec("sh");
+            p = Runtime.getRuntime().exec("su");
             os = new DataOutputStream(p.getOutputStream());
             //add the commands to the process
             for (String tmpCmd : cmds) {
+                Log.d(LOG_TAG, tmpCmd);
                 os.writeBytes(tmpCmd + "\n");
             }
             //flush out the process

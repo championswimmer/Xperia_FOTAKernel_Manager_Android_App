@@ -100,6 +100,7 @@ public class FotaFragment extends Fragment {
 
         //disable format and restore button if root does not exist
         formatButton.setEnabled(hasRoot);
+        backupButton.setEnabled(hasRoot);
 
         //add onclick method for format
         formatButton.setOnClickListener(new View.OnClickListener() {
