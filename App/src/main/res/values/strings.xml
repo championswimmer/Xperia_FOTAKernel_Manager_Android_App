@@ -23,6 +23,14 @@
     <string name="twrp_download_desc">Get latest TWRP Recovery \n image for your device</string>
     <string name="twrp_flash_button">FLASH</string>
     <string name="twrp_flash_desc">Flash the downloaded TWRP Image \n to your FOTAKernel partition</string>
+    <string name="flashfota_format_succeeded">Successfully formatted FOTAKernel partition</string>
+    <string name="flashfota_format_failed">Failed to flash FOTAKernel partition</string>
+    <string name="flashfota_backup_succeeded">Successfully backed up FOTAKernel</string>
+    <string name="flashfota_backup_failed">Failed to backup FOTAkernel</string>
+    <string name="flashfota_restore_succeeded">Successfully restored FOTAKernel backup</string>
+    <string name="flashfota_restore_failed">Failed to restore FOTAkernel backup</string>
+    <string name="fotaflash_flash_succeeded">Successfully flashed FOTAKernel partition</string>
+    <string name="fotaflash_flash_failed">Failed to flash FOTAKernel partition</string>
 
 
 </resources>
