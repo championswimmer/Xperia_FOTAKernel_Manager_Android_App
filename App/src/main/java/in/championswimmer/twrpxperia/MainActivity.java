@@ -2,7 +2,9 @@ package in.championswimmer.twrpxperia;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import in.championswimmer.twrpxperia.flashutils.FlashFota;
+import in.championswimmer.twrpxperia.flashutils.GetImg;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
 import in.championswimmer.twrpxperia.fragment.TwrpFragment;
@@ -54,6 +57,80 @@ public class MainActivity extends Activity
         SharedPreferences.Editor prefEditor = prefs.edit();
         prefEditor.putBoolean(HAS_ROOT_PREF, chkRoot.hasRoot());
         prefEditor.commit();
+
+        GetImg gi = new GetImg(this);
+        if (!gi.isSupported()) {
+            AlertDialog.Builder noSupportAlert = new AlertDialog.Builder(this);
+            noSupportAlert.setTitle("UNSUPPORTED DEVICE");
+            noSupportAlert.setMessage
+                    ("This device is not officially supported by the app" +
+                    "\n" +
+                    "Recoveries downloaded by the app may not be compatible" +
+                    "with your device as it has not been tested on it" +
+                    "\n" +
+                    "Proceed to use this app only if you are sure of what you are doing");
+            noSupportAlert.setPositiveButton(
+                    "Got it !",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }
+            );
+            noSupportAlert.setNegativeButton(
+                    "Exit",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    }
+            );
+            noSupportAlert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialogInterface) {
+                    finish();
+                }
+            });
+            noSupportAlert.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialogInterface) {
+                    finish();
+                }
+            });
+
+            noSupportAlert.show();
+        }
+
+        if (!chkRoot.hasRoot()) {
+            AlertDialog.Builder noRootAlert = new AlertDialog.Builder(this);
+            noRootAlert.setTitle("NO ROOT !! ");
+            noRootAlert.setMessage
+                    ("Your phone is not rooted or this app does not have Super user access." +
+                    "\n" +
+                    "Functions like flashing and restoring FOTAKernel will be disabled" +
+                    "\n" +
+                    "Only downloading recovery images is allowed");
+            noRootAlert.setPositiveButton(
+                    "Got it !",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    }
+            );
+            noRootAlert.setNegativeButton(
+                    "Exit",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    }
+            );
+
+            noRootAlert.show();
+        }
     }
 
     @Override

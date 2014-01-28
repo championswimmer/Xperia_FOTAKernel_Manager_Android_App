@@ -1,7 +1,9 @@
 package in.championswimmer.twrpxperia.fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -98,7 +100,25 @@ public class TwrpFragment extends Fragment {
         flashButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ff.flashimg(dir.RAW_TWRP_PATH);
+                if (dir.validTwrp()) {
+                    ff.flashimg(dir.RAW_TWRP_PATH);
+                } else {
+                    AlertDialog.Builder ad = new AlertDialog.Builder(getActivity().getApplicationContext());
+                    ad.setTitle("WARNING");
+                    ad.setMessage("The size of twrp.img is too small. It might be an invalid" +
+                            " TWRP image as result of incomplete or corrupt download");
+                    ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    ad.setPositiveButton("Flash", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ff.flashimg(dir.RAW_TWRP_PATH);
+                        }
+                    });
+                }
             }
         });
 

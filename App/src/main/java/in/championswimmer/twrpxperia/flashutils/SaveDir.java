@@ -49,4 +49,13 @@ public class SaveDir {
     public String backupBath() {
         return STORAGE_DIRECTORY + "fotabackup.img";
     }
+
+    public Boolean validCwm(){
+        File f = new File(cwmPath());
+        return (((f.length() / 1024) / 1024) > 5);
+    }
+    public Boolean validTwrp() {
+        File f = new File(twrpPath());
+        return (((f.length() / 1024) / 1024) > 5);
+    }
 }

@@ -25,6 +25,8 @@ public class GetImg {
     private String deviceName;
     private SaveDir dir;
 
+    private Boolean supported = false;
+
     private Context c;
 
     public GetImg(Context context) {
@@ -36,9 +38,14 @@ public class GetImg {
         for (int i = 0; i < props.length; i++) {
             if (props[i].equalsIgnoreCase(Build.DEVICE)) {
                 deviceName = codenames[i];
+                supported = true;
             }
         }
         Log.d(LOG_TAG, "prepare a download method for " + deviceName);
+    }
+
+    public Boolean isSupported() {
+        return supported;
     }
 
     public void downloadTWRP() {
