@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -53,6 +54,11 @@ public class GetImg {
         request.setDestinationUri(Uri.parse("file://" + dir.twrpPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
+        Toast done = Toast.makeText(c,
+                "TWRP Recovery image downloading to \n"
+                + twrp.getPath(),
+                Toast.LENGTH_LONG);
+        done.show();
     }
 
     public void downloadCWM() {
@@ -68,5 +74,10 @@ public class GetImg {
         request.setDestinationUri(Uri.parse("file://" + dir.cwmPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
+        Toast done = Toast.makeText(c,
+                "CWM Recovery image downloading to \n"
+                        + cwm.getPath(),
+                Toast.LENGTH_LONG);
+        done.show();
     }
 }
