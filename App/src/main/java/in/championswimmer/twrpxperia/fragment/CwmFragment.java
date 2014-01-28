@@ -117,6 +117,7 @@ public class CwmFragment extends Fragment {
                             ff.flashimg(dir.RAW_CWM_PATH);
                         }
                     });
+                    ad.show();
                 }
             }
         });

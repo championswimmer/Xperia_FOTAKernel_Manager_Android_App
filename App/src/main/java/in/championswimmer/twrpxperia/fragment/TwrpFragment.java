@@ -118,6 +118,7 @@ public class TwrpFragment extends Fragment {
                             ff.flashimg(dir.RAW_TWRP_PATH);
                         }
                     });
+                    ad.show();
                 }
             }
         });
