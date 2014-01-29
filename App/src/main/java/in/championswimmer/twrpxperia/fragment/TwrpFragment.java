@@ -20,7 +20,7 @@ import in.championswimmer.twrpxperia.flashutils.SaveDir;
 
 
 /**
- * A simple {@link android.support.v4.app.Fragment} subclass.
+ * A simple {android.support.v4.app.Fragment} subclass.
  * Activities that contain this in.championswimmer.twrpxperia.fragment must implement the
  * {@link TwrpFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
@@ -87,11 +87,11 @@ public class TwrpFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this in.championswimmer.twrpxperia.fragment
-        View rootView = inflater.inflate(R.layout.fragment_twrp, container, false);
-        Button downloadButton = (Button) rootView.findViewById(R.id.twrp_download_button);
+        final View rootView = inflater.inflate(R.layout.fragment_twrp, container, false);
+        final Button downloadButton = (Button) rootView.findViewById(R.id.twrp_download_button);
         Button flashButton = (Button) rootView.findViewById(R.id.twrp_flash_button);
 
         //enable flashing only if twrp.img exists and we have root
@@ -103,7 +103,7 @@ public class TwrpFragment extends Fragment {
                 if (dir.validTwrp()) {
                     ff.flashimg(dir.RAW_TWRP_PATH);
                 } else {
-                    AlertDialog.Builder ad = new AlertDialog.Builder(getActivity().getApplicationContext());
+                    AlertDialog.Builder ad = new AlertDialog.Builder(inflater.getContext());
                     ad.setTitle("WARNING");
                     ad.setMessage("The size of twrp.img is too small. It might be an invalid" +
                             " TWRP image as result of incomplete or corrupt download");
@@ -112,7 +112,7 @@ public class TwrpFragment extends Fragment {
                         public void onClick(DialogInterface dialogInterface, int i) {
                         }
                     });
-                    ad.setPositiveButton("Flash", new DialogInterface.OnClickListener() {
+                    ad.setPositiveButton("Flash anyway", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ff.flashimg(dir.RAW_TWRP_PATH);

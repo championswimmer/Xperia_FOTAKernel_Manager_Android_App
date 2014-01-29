@@ -86,11 +86,11 @@ public class CwmFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this in.championswimmer.twrpxperia.fragment
-        View rootView = inflater.inflate(R.layout.fragment_cwm, container, false);
-        Button downloadButton = (Button) rootView.findViewById(R.id.cwm_download_button);
+        final View rootView = inflater.inflate(R.layout.fragment_cwm, container, false);
+        final Button downloadButton = (Button) rootView.findViewById(R.id.cwm_download_button);
         Button flashButton = (Button) rootView.findViewById(R.id.cwm_flash_button);
 
         //enable flash only if cwm.img exists
@@ -102,7 +102,7 @@ public class CwmFragment extends Fragment {
                 if (dir.validCwm()) {
                     ff.flashimg(dir.RAW_CWM_PATH);
                 } else {
-                    AlertDialog.Builder ad = new AlertDialog.Builder(getActivity().getApplicationContext());
+                    AlertDialog.Builder ad = new AlertDialog.Builder(inflater.getContext());
                     ad.setTitle("WARNING");
                     ad.setMessage("The size of cwm.img is too small. It might be an invalid" +
                             " CWM image as result of incomplete or corrupt download");
@@ -111,7 +111,7 @@ public class CwmFragment extends Fragment {
                         public void onClick(DialogInterface dialogInterface, int i) {
                         }
                     });
-                    ad.setPositiveButton("Flash", new DialogInterface.OnClickListener() {
+                    ad.setPositiveButton("Flash anyway", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ff.flashimg(dir.RAW_CWM_PATH);
