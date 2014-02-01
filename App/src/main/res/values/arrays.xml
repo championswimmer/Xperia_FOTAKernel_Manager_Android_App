@@ -38,6 +38,11 @@
         <item>M35h</item>
         <item>M35c</item>
         <item>M35t</item>
+        <item>honami</item>
+        <item>C6902</item>
+        <item>C6903</item>
+        <item>C6906</item>
+        <item>C6943</item>
     </string-array>
 
     <string-array name="supported_device_codename">
@@ -71,9 +76,19 @@
         <item>huashan</item>
         <item>huashan</item>
         <item>huashan</item>
+        <item>honami</item>
+        <item>honami</item>
+        <item>honami</item>
+        <item>honami</item>
+        <item>honami</item>
     </string-array>
 
     <string-array name="fota_path">
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
