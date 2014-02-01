@@ -105,8 +105,7 @@ public class TwrpFragment extends Fragment {
                 } else {
                     AlertDialog.Builder ad = new AlertDialog.Builder(inflater.getContext());
                     ad.setTitle("WARNING");
-                    ad.setMessage("The size of twrp.img is too small. It might be an invalid" +
-                            " TWRP image as result of incomplete or corrupt download");
+                    ad.setMessage(getResources().getString(R.string.alert_invalid_twrp_image));
                     ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

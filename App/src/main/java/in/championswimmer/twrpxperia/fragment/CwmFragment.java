@@ -104,8 +104,7 @@ public class CwmFragment extends Fragment {
                 } else {
                     AlertDialog.Builder ad = new AlertDialog.Builder(inflater.getContext());
                     ad.setTitle("WARNING");
-                    ad.setMessage("The size of cwm.img is too small. It might be an invalid" +
-                            " CWM image as result of incomplete or corrupt download");
+                    ad.setMessage(getResources().getString(R.string.alert_invalid_cwm_image));
                     ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

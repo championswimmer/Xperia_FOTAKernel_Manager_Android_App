@@ -9,20 +9,24 @@
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="fota_restore_desc">Restore a backed up\n FOTAKernel image</string>
     <string name="fota_backup_desc">Backup the FOTAKernel\n parition as an image</string>
     <string name="fota_format_desc">Write zeroes to the\n FOTAKernel partition</string>
     <string name="fota_format_button">FORMAT</string>
     <string name="fota_backup_button">BACKUP</string>
     <string name="fota_restore_button">RESTORE</string>
+
     <string name="cwm_download_button">DOWLOAD</string>
     <string name="cwm_download_desc">Get latest CWM Recovery \n image for your device</string>
     <string name="cwm_flash_button">FLASH</string>
     <string name="cwm_flash_desc">Flash the downloaded CWM Image \n to your FOTAKernel partition</string>
+
     <string name="twrp_download_button">DOWLOAD</string>
     <string name="twrp_download_desc">Get latest TWRP Recovery \n image for your device</string>
     <string name="twrp_flash_button">FLASH</string>
     <string name="twrp_flash_desc">Flash the downloaded TWRP Image \n to your FOTAKernel partition</string>
+
     <string name="flashfota_format_succeeded">Successfully formatted FOTAKernel partition</string>
     <string name="flashfota_format_failed">Failed to flash FOTAKernel partition</string>
     <string name="flashfota_backup_succeeded">Successfully backed up FOTAKernel</string>
@@ -31,6 +35,9 @@
     <string name="flashfota_restore_failed">Failed to restore FOTAkernel backup</string>
     <string name="fotaflash_flash_succeeded">Successfully flashed FOTAKernel partition</string>
     <string name="fotaflash_flash_failed">Failed to flash FOTAKernel partition</string>
+
+    <string name="alert_invalid_cwm_image">The size of cwm.img is too small. It might be an invalid CWM image as result of incomplete or corrupt download</string>
+    <string name="alert_invalid_twrp_image">The size of twrp.img is too small. It might be an invalid TWRP image as result of incomplete or corrupt download</string>
 
 
 </resources>
