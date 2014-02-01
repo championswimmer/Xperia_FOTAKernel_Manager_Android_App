@@ -86,12 +86,6 @@ public class MainActivity extends Activity
                         }
                     }
             );
-            noSupportAlert.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialogInterface) {
-                    finish();
-                }
-            });
             noSupportAlert.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialogInterface) {

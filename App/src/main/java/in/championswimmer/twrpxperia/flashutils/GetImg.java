@@ -57,7 +57,8 @@ public class GetImg {
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         File twrp = new File(dir.twrpPath());
-        if (twrp.exists()) twrp.delete();
+        Log.d(LOG_TAG, "Saving at " + dir.twrpPath());
+        if (twrp.exists() || twrp.isFile()) twrp.delete();
         request.setDestinationUri(Uri.parse("file://" + dir.twrpPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
@@ -77,7 +78,8 @@ public class GetImg {
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         File cwm = new File(dir.twrpPath());
-        if (cwm.exists()) cwm.delete();
+        Log.d(LOG_TAG, "Saving at " + dir.cwmPath());
+        if (cwm.exists() || cwm.isFile()) cwm.delete();
         request.setDestinationUri(Uri.parse("file://" + dir.cwmPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
