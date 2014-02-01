@@ -1,7 +1,9 @@
 package in.championswimmer.twrpxperia.flashutils;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
@@ -56,9 +58,20 @@ public class GetImg {
         request.setTitle("twrp.img");
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        File twrp = new File(dir.twrpPath());
+        final File twrp = new File(dir.twrpPath());
         Log.d(LOG_TAG, "Saving at " + dir.twrpPath());
-        if (twrp.exists() || twrp.isFile()) twrp.delete();
+        if (twrp.exists() || twrp.isFile()){
+            AlertDialog.Builder tex = new AlertDialog.Builder(c);
+            tex.setTitle("FILE EXISTS");
+            tex.setMessage(c.getString(R.string.alert_exists_twrp_image));
+            tex.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    twrp.delete();
+                }
+            });
+            tex.show();
+        }
         request.setDestinationUri(Uri.parse("file://" + dir.twrpPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
@@ -77,9 +90,20 @@ public class GetImg {
         request.setTitle("cwm.img");
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        File cwm = new File(dir.twrpPath());
+        final File cwm = new File(dir.twrpPath());
         Log.d(LOG_TAG, "Saving at " + dir.cwmPath());
-        if (cwm.exists() || cwm.isFile()) cwm.delete();
+        if (cwm.exists() || cwm.isFile()) {
+            AlertDialog.Builder cex = new AlertDialog.Builder(c);
+            cex.setTitle("FILE EXISTS");
+            cex.setMessage(c.getString(R.string.alert_exists_cwm_image));
+            cex.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    cwm.delete();
+                }
+            });
+            cex.show();
+        }
         request.setDestinationUri(Uri.parse("file://" + dir.cwmPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);

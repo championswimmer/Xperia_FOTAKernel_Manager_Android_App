@@ -82,7 +82,7 @@ public class CwmFragment extends Fragment {
         ff = new FlashFota(getActivity().getApplicationContext());
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
         hasRoot = pref.getBoolean(HAS_ROOT_PREF, false);
-        gi = new GetImg(getActivity().getApplicationContext());
+        gi = new GetImg(getActivity());
     }
 
     @Override
