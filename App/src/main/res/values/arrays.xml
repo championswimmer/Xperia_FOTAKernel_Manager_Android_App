@@ -43,6 +43,12 @@
         <item>C6903</item>
         <item>C6906</item>
         <item>C6943</item>
+        <item>togari</item>
+        <item>C6802</item>
+        <item>C6803</item>
+        <item>C6806</item>
+        <item>C6833</item>
+        <item>C6843</item>
     </string-array>
 
     <string-array name="supported_device_codename">
@@ -81,9 +87,21 @@
         <item>honami</item>
         <item>honami</item>
         <item>honami</item>
+        <item>togari</item>
+        <item>togari</item>
+        <item>togari</item>
+        <item>togari</item>
+        <item>togari</item>
+        <item>togari</item>
     </string-array>
 
     <string-array name="fota_path">
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
