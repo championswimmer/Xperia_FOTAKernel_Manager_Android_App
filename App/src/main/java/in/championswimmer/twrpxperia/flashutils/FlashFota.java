@@ -148,7 +148,7 @@ public class FlashFota {
                 (c, c.getString(R.string.flashfota_backup_failed),
                         Toast.LENGTH_SHORT);
 
-        if (res.contains("bytes transferred in"))
+        if (res.contains("records out"))
             succeeded.show();
         else
             failed.show();
@@ -192,7 +192,7 @@ public class FlashFota {
                 (c, c.getString(R.string.flashfota_restore_failed),
                         Toast.LENGTH_SHORT);
 
-        if (res.contains("bytes transferred in"))
+        if (res.contains("records out"))
             succeeded.show();
         else
             failed.show();
@@ -237,7 +237,7 @@ public class FlashFota {
                 (c, c.getString(R.string.fotaflash_flash_failed),
                         Toast.LENGTH_SHORT);
 
-        if (res.contains("bytes transferred in"))
+        if (res.contains("records out"))
             succeeded.show();
         else
             failed.show();
