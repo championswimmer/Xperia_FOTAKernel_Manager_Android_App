@@ -21,6 +21,7 @@ public class GetImg {
 
     private static String TWRP_BASE_URL = "http://android.championswimmer.in/twrp/";
     private static String CWM_BASE_URL = "http://android.championswimmer.in/cwm/";
+    private static String PHILZ_BASE_URL = "http://files.championswimmer.in/championswimmer/recovery/philz/";
 
 
     private String[] codenames, props;
@@ -109,6 +110,39 @@ public class GetImg {
         manager.enqueue(request);
         Toast done = Toast.makeText(c,
                 "CWM Recovery image downloading to \n"
+                        + cwm.getPath(),
+                Toast.LENGTH_LONG);
+        done.show();
+    }
+
+
+    public void downloadPhilz() {
+        String url = PHILZ_BASE_URL + deviceName + "/recovery.img";
+        Log.d(LOG_TAG, "downloading " + url);
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setDescription("Philz-Touch recovery for " + deviceName);
+        request.setTitle("philz.img");
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        final File cwm = new File(dir.twrpPath());
+        Log.d(LOG_TAG, "Saving at " + dir.cwmPath());
+        if (cwm.exists() || cwm.isFile()) {
+            AlertDialog.Builder cex = new AlertDialog.Builder(c);
+            cex.setTitle("FILE EXISTS");
+            cex.setMessage(c.getString(R.string.alert_exists_cwm_image));
+            cex.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    cwm.delete();
+                }
+            });
+            cex.show();
+        }
+        request.setDestinationUri(Uri.parse("file://" + dir.cwmPath()));
+        DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
+        Toast done = Toast.makeText(c,
+                "Philz-Touch Recovery image downloading to \n"
                         + cwm.getPath(),
                 Toast.LENGTH_LONG);
         done.show();

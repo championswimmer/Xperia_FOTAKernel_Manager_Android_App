@@ -5,6 +5,7 @@
         <item>FOTAKernel</item>
         <item>TWRP</item>
         <item>CWM</item>
+        <item>Philz-Touch</item>
     </string-array>
 
     <string-array name="supported_device_prop">
@@ -49,6 +50,11 @@
         <item>C6806</item>
         <item>C6833</item>
         <item>C6843</item>
+        <item>sirius</item>
+        <item>D6502</item>
+        <item>D6503</item>
+        <item>D6506</item>
+        <item>D6543</item>
     </string-array>
 
     <string-array name="supported_device_codename">
@@ -93,9 +99,19 @@
         <item>togari</item>
         <item>togari</item>
         <item>togari</item>
+        <item>sirius</item>
+        <item>sirius</item>
+        <item>sirius</item>
+        <item>sirius</item>
+        <item>sirius</item>
     </string-array>
 
     <string-array name="fota_path">
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>

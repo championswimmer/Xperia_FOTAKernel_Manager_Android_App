@@ -17,6 +17,7 @@ import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.flashutils.GetImg;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
+import in.championswimmer.twrpxperia.fragment.PhilzFragment;
 import in.championswimmer.twrpxperia.fragment.TwrpFragment;
 
 ;
@@ -25,6 +26,7 @@ public class MainActivity extends Activity
         implements
         NavigationDrawerFragment.NavigationDrawerCallbacks,
         CwmFragment.OnFragmentInteractionListener,
+        PhilzFragment.OnFragmentInteractionListener,
         FotaFragment.OnFragmentInteractionListener,
         TwrpFragment.OnFragmentInteractionListener {
 
@@ -149,6 +151,11 @@ public class MainActivity extends Activity
                         .replace(R.id.container, CwmFragment.newInstance("A", "a"))
                         .commit();
                 break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PhilzFragment.newInstance("A", "a"))
+                        .commit();
+                break;
         }
     }
 
@@ -166,6 +173,7 @@ public class MainActivity extends Activity
     }
 
 
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -190,6 +198,7 @@ public class MainActivity extends Activity
         }
         return super.onOptionsItemSelected(item);
     }
+*/
 
     @Override
     public void onFragmentInteraction(Uri uri) {
