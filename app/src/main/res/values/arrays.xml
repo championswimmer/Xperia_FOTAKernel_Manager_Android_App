@@ -55,6 +55,9 @@
         <item>D6503</item>
         <item>D6506</item>
         <item>D6543</item>
+        <item>D5503</item>
+        <item>amami</item>
+        <item>anami</item>
     </string-array>
 
     <string-array name="supported_device_codename">
@@ -104,9 +107,15 @@
         <item>sirius</item>
         <item>sirius</item>
         <item>sirius</item>
+        <item>amami</item>
+        <item>amami</item>
+        <item>amami</item>
     </string-array>
 
     <string-array name="fota_path">
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
+        <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
         <item>FOTAKernel</item>
