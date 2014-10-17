@@ -124,26 +124,26 @@ public class GetImg {
         request.setTitle("philz.img");
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        final File cwm = new File(dir.twrpPath());
-        Log.d(LOG_TAG, "Saving at " + dir.cwmPath());
-        if (cwm.exists() || cwm.isFile()) {
+        final File philz = new File(dir.philzPath());
+        Log.d(LOG_TAG, "Saving at " + dir.philzPath());
+        if (philz.exists() || philz.isFile()) {
             AlertDialog.Builder cex = new AlertDialog.Builder(c);
             cex.setTitle("FILE EXISTS");
-            cex.setMessage(c.getString(R.string.alert_exists_cwm_image));
+            cex.setMessage(c.getString(R.string.alert_exists_philz_image));
             cex.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    cwm.delete();
+                    philz.delete();
                 }
             });
             cex.show();
         }
-        request.setDestinationUri(Uri.parse("file://" + dir.cwmPath()));
+        request.setDestinationUri(Uri.parse("file://" + dir.philzPath()));
         DownloadManager manager = (DownloadManager) c.getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
         Toast done = Toast.makeText(c,
                 "Philz-Touch Recovery image downloading to \n"
-                        + cwm.getPath(),
+                        + philz.getPath(),
                 Toast.LENGTH_LONG);
         done.show();
     }

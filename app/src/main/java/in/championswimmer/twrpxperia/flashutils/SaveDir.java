@@ -70,7 +70,7 @@ public class SaveDir {
         return (((f.length() / 1024) / 1024) > 5);
     }
     public Boolean validPhilz() {
-        File f = new File(twrpPath());
+        File f = new File(philzPath());
         return (((f.length() / 1024) / 1024) > 5);
     }
 }
