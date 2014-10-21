@@ -3,6 +3,7 @@ language: android
 branches:
   only:
     - v2
+    - v3
 
 script: "./gradlew clean assembleDebug"
 
