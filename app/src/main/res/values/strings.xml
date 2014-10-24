@@ -32,6 +32,11 @@
     <string name="philz_flash_button">FLASH</string>
     <string name="philz_flash_desc">Flash the downloaded Philz-Touch Image \n to your FOTAKernel partition</string>
 
+    <string name="cm_download_button">DOWLOAD</string>
+    <string name="cm_download_desc">Get latest CM Simple Recovery \n image for your device</string>
+    <string name="cm_flash_button">FLASH</string>
+    <string name="cm_flash_desc">Flash the downloaded CM SimpleRecovery Image \n to your FOTAKernel partition</string>
+
     <string name="flashfota_format_succeeded">Successfully formatted FOTAKernel partition</string>
     <string name="flashfota_format_failed">Failed to flash FOTAKernel partition</string>
     <string name="flashfota_backup_succeeded">Successfully backed up FOTAKernel</string>
@@ -42,10 +47,12 @@
     <string name="fotaflash_flash_failed">Failed to flash FOTAKernel partition</string>
 
     <string name="alert_invalid_cwm_image">The size of cwm.img is too small. It might be an invalid CWM image as result of incomplete or corrupt download</string>
-    <string name="alert_invalid_philz_image">The size of philz.img is too small. It might be an invalid CWM image as result of incomplete or corrupt download</string>
+    <string name="alert_invalid_philz_image">The size of philz.img is too small. It might be an invalid Philz image as result of incomplete or corrupt download</string>
+    <string name="alert_invalid_cm_image">The size of cm.img is too small. It might be an invalid CM image as result of incomplete or corrupt download</string>
     <string name="alert_invalid_twrp_image">The size of twrp.img is too small. It might be an invalid TWRP image as result of incomplete or corrupt download</string>
     <string name="alert_exists_cwm_image">A CWM recovery image already exists on your device. It will be replaced by the file being downloaded now.</string>
     <string name="alert_exists_philz_image">A Philz-Touch recovery image already exists on your device. It will be replaced by the file being downloaded now.</string>
+    <string name="alert_exists_cm_image">A CM Simple recovery image already exists on your device. It will be replaced by the file being downloaded now.</string>
     <string name="alert_exists_twrp_image">A TWRP recovery image already exists on your device. It will be replaced by the file being downloaded now.</string>
 
 

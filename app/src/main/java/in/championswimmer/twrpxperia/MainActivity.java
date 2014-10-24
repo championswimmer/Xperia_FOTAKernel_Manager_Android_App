@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import in.championswimmer.twrpxperia.flashutils.FlashFota;
 import in.championswimmer.twrpxperia.flashutils.GetImg;
+import in.championswimmer.twrpxperia.fragment.CmFragment;
 import in.championswimmer.twrpxperia.fragment.CwmFragment;
 import in.championswimmer.twrpxperia.fragment.FotaFragment;
 import in.championswimmer.twrpxperia.fragment.PhilzFragment;
@@ -27,6 +28,7 @@ public class MainActivity extends Activity
         NavigationDrawerFragment.NavigationDrawerCallbacks,
         CwmFragment.OnFragmentInteractionListener,
         PhilzFragment.OnFragmentInteractionListener,
+        CmFragment.OnFragmentInteractionListener,
         FotaFragment.OnFragmentInteractionListener,
         TwrpFragment.OnFragmentInteractionListener {
 
@@ -154,6 +156,11 @@ public class MainActivity extends Activity
             case 3:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, PhilzFragment.newInstance("A", "a"))
+                        .commit();
+                break;
+            case 4:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, CmFragment.newInstance("A", "a"))
                         .commit();
                 break;
         }

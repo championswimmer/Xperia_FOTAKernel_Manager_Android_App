@@ -15,6 +15,7 @@ public class SaveDir {
     public static String RAW_CWM_PATH = "/sdcard/TWRPXperia/cwm.img";
     public static String RAW_TWRP_PATH = "/sdcard/TWRPXperia/twrp.img";
     public static String RAW_PHILZ_PATH = "/sdcard/TWRPXperia/philz.img";
+    public static String RAW_CM_PATH = "/sdcard/TWRPXperia/cm.img";
     public static String RAW_BACKUP_PATH = "/sdcard/TWRPXperia/fotabackup.img";
 
     public SaveDir() {
@@ -39,6 +40,11 @@ public class SaveDir {
         return twrp.exists();
     }
 
+    public Boolean existsCmImage() {
+        File twrp = new File(STORAGE_DIRECTORY + "cm.img");
+        return twrp.exists();
+    }
+
     public Boolean existsFotaBackup() {
         File backup = new File(STORAGE_DIRECTORY + "fotabackup.img");
         return backup.exists();
@@ -54,6 +60,9 @@ public class SaveDir {
 
     public String philzPath() {
         return STORAGE_DIRECTORY + "philz.img";
+    }
+    public String cmPath() {
+        return STORAGE_DIRECTORY + "cm.img";
     }
 
 
@@ -71,6 +80,10 @@ public class SaveDir {
     }
     public Boolean validPhilz() {
         File f = new File(philzPath());
+        return (((f.length() / 1024) / 1024) > 5);
+    }
+    public Boolean validCm() {
+        File f = new File(cmPath());
         return (((f.length() / 1024) / 1024) > 5);
     }
 }
