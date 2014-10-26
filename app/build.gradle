@@ -8,8 +8,8 @@ android {
         applicationId "in.championswimmer.twrpxperia"
         minSdkVersion 15
         targetSdkVersion 19
-        versionCode 360
-        versionName "3.6.0"
+        versionCode 361
+        versionName "3.6.1"
     }
     buildTypes {
         release {

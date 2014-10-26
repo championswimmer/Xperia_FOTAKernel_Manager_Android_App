@@ -19,8 +19,8 @@ import in.championswimmer.twrpxperia.R;
 public class GetImg {
     private String LOG_TAG = "XRM";
 
-    private static String TWRP_BASE_URL = "http://android.championswimmer.in/twrp/";
-    private static String CWM_BASE_URL = "http://android.championswimmer.in/cwm/";
+    private static String TWRP_BASE_URL = "http://files.championswimmer.in/championswimmer/recovery/twrp/";
+    private static String CWM_BASE_URL = "http://files.championswimmer.in/championswimmer/recovery/cwm/";
     private static String PHILZ_BASE_URL = "http://files.championswimmer.in/championswimmer/recovery/philz/";
     private static String CM_BASE_URL = "http://files.championswimmer.in/championswimmer/recovery/cm/";
 
