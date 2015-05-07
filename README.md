@@ -1,6 +1,6 @@
 #Xperia Recovery Manager
 [![Build Status](https://travis-ci.org/championswimmer/Xperia_FOTAKernel_Manager_Android_App.svg?branch=v3)](https://travis-ci.org/championswimmer/Xperia_FOTAKernel_Manager_Android_App)    
-[![Todo Status](http://www.todo-ci.org/b/championswimmer/Xperia_FOTAKernel_Manager_Android_App)](http://www.todo-ci.org/b/championswimmer/Xperia_FOTAKernel_Manager_Android_App)    
+[![Todo Status](http://www.todo-ci.org/r/championswimmer/Xperia_FOTAKernel_Manager_Android_App)](http://www.todo-ci.org/b/championswimmer/Xperia_FOTAKernel_Manager_Android_App)    
 
 This app downloads and flashes TWRP, CWM or PhilzTouch recovery images for the following supported phones    
 + Xperia Z   
